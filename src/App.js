@@ -1,25 +1,46 @@
+/*eslint-disable*/
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  let [title, changeTitle] = useState(['국어','영어','수학'])
+  let [modalTitle, changeModalTitle] = useState('과학')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        title.map((item)=>{
+          return (
+            <div>
+              <div>zzz</div>
+              <div>ggg</div>
+              <div>{item}</div>
+              <hr></hr>
+            </div>
+          )
+        })
+      }
+      <button onClick={ ()=>{ changeModalTitle(title[0]) } }>버튼1</button>
+      <button onClick={ ()=>{ changeModalTitle(title[1]) } }>버튼1</button>
+      <button onClick={ ()=>{ changeModalTitle(title[2]) } }>버튼1</button>
+      <Modal title={modalTitle}></Modal>
     </div>
+
+    
   );
+}
+
+function Modal(props){
+  return (
+    <div>
+      {console.log(JSON.stringify((props)))}
+      <div className="dtdd">1112</div>
+      <div>222</div>
+      <div>{props.title}</div>
+      <hr></hr>
+    </div>
+  )
 }
 
 export default App;
